@@ -1,68 +1,61 @@
-// Il menu della calcolatrice
-function calcolatrice() {
-    let scelta;
-    do {
-        scelta = prompt(
-            "Calcolatrice!\n" +
-            "Inserisci il numero corrispondente al calcolo:\n" +
-            "1. Somma\n" +
-            "2. Sottrazione\n" +
-            "3. Moltiplicazione\n" +
-            "4. Divisione\n" +
-            "0. Esci\n" +
-            "Inserisci la tua scelta:"
-        );
-
-        if (scelta === "0") {
-            alert("Arrivederci!");
-            break;
-        }
-
-        let num1 = parseFloat(prompt("Inserisci il primo numero:"));
-        let num2 = parseFloat(prompt("Inserisci il secondo numero:"));
-        let risultato;
-
-        switch (scelta) {
-            case "1":
-                risultato = somma(num1, num2);
-                break;
-            case "2":
-                risultato = sottrazione(num1, num2);
-                break;
-            case "3":
-                risultato = moltiplicazione(num1, num2);
-                break;
-            case "4":
-                risultato = divisione(num1, num2);
-                break;
-            default:
-                alert("Scelta non valida!");
-                continue;
-        }
-
-        alert("Risultato: " + risultato);
-    } while (true);
+//Funzioni
+function somma(n1, n2) {
+    return n1 + n2;
 }
 
-// Le funzioni per il funzionamento della calcolatrice
-function somma(a, b) {
-    return a + b;
+function meno(n1, n2) {
+    return n1 - n2;
 }
 
-function sottrazione(a, b) {
-    return a - b;
+function molti(n1, n2) {
+    return n1 * n2;
 }
 
-function moltiplicazione(a, b) {
-    return a * b;
-}
-
-function divisione(a, b) {
-    if (b === 0) {
-        return "Errore: divisione per zero!";
+function div(n1, n2) {
+    if (n2 === 0) {
+        return "Errore";
     }
-    return a / b;
+    return n1 / n2;
 }
+//menu della calcolatrice
+let scelta;
 
-// Avvia della calcolatrice
-calcolatrice();
+do {
+    scelta = prompt(
+        "CALCOLATRICE\n" +
+        "1 - Somma\n" +
+        "2 - Sottrazione\n" +
+        "3 - Moltiplicazione\n" +
+        "4 - Diviso\n" +
+        "0 - Esci \n"
+    );
+
+    if (scelta === "0") {
+        break;
+    }
+
+    let n1 = parseFloat(prompt("Primo numero:"));
+    let n2 = parseFloat(prompt("Secondo numero:"));
+    let risultato;
+//rimando alle funzioni scritte in precedenza
+    switch (scelta) {
+        case "1":
+            risultato = somma(n1, n2);
+            break;
+        case "2":
+            risultato = meno(n1, n2);
+            break;
+        case "3":
+            risultato = molti(n1, n2);
+            break;
+        case "4":
+            risultato = div(n1, n2);
+            break;
+        default:
+            alert("Scelta sbagliata");
+            continue;
+    }
+    
+    alert("Risultato: " + risultato);
+
+} while (true);
